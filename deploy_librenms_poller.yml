@@ -1,10 +1,7 @@
 ---
 - name: Check for online hosts
   hosts: all
-  gather_facts: false
-  connection: network_cli
-  vars_files:
-    - cisco_vars.yml
+  gather_facts: False
 
   tasks:
     - name: Ping for reachability
@@ -19,8 +16,7 @@
 
 - name: Deploy LibreNMS Poller
   hosts: reachable
-  gather_facts: false
-  connection: network_cli
+  gather_facts: True
 
   tasks:
     import_role:
