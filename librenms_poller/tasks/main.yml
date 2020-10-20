@@ -36,6 +36,12 @@
     state: present
   when: webserver == 'apache' and ansible_os_family == 'RedHat'
 
+- name: Download Librenms Repository
+  git:
+    repo: https://github.com/librenms/librenms.git
+    dest: /opt/librenms
+    clone: True
+
 - name: Add Librenms user account
   user:
     name: librenms
@@ -44,12 +50,6 @@
     home: /opt/librenms
     shell: /bin/bash
     state: present
-
-- name: Download Librenms Repository
-  git:
-    repo: https://github.com/librenms/librenms.git
-    dest: /opt/librenms
-    clone: True
 
 - name: Chown librenms /opt/librenms
   file:
