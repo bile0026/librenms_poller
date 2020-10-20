@@ -3,7 +3,7 @@
   copy:
     remote_src: True
     src: /opt/librenms/snmpd.conf.example
-    dst: /etc/snmp/snmpd.conf
+    dest: /etc/snmp/snmpd.conf
 
 - name: Set SNMP String
   lineinfile:
