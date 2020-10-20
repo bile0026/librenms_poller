@@ -31,3 +31,40 @@
     name: httpd
     state: present
   when: ("{{ webserver }} == 'apache'") and ansible_os_family == 'RedHat'
+
+- name: Add Librenms user account
+  user:
+    name: librenms
+    comment: librenms user account
+    create_home: True
+    home: /opt/librenms
+    shell: /bin/bash
+    state: present
+
+- name: Download Librenms Repository
+  git:
+    repo: https://github.com/librenms/librenms.git
+    dest: /opt
+    clone: True
+
+- name: Chown librenms /opt/librenms
+  file:
+    path: /opt/librenms
+    owner: librenms
+    group: librenms
+    mode: "771"
+
+- name: Grant librenms ACL permissions to rrd/logs/bootstrap
+  ansible.posix.acl:
+    path: "{{ item }}"
+    entity: librenms
+    etype: group
+    permissions: rwx
+    default: True
+    recursive: True
+    state: present
+  with_items:
+    - /opt/librenms/rrd/
+    - /opt/librenms/logs/
+    - /opt/librenms/bootstrap/cache/
+    - /opt/librenms/storage/

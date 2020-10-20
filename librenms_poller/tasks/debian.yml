@@ -10,3 +10,12 @@
     package: "{{ apt_prerequisites }}"
   state: present
   update_cache: True
+
+- name: Set Timezone PHP Debian
+  lineinfile:
+    path: /etc/php.ini
+    regexp: "date.timezone"
+    line: "date.timezone = {{ time_zone }}"
+  with_items:
+    - /etc/php/{{ php_version }}/fpm/php.ini
+    - /etc/php/{{ php_version }}/cli/php.ini
