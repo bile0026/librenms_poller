@@ -1,15 +1,21 @@
 ---
 # tasks file for librenms_poller
-- name: Install Prerequisites for Debian-based OS
+- name: Import vars for Debian-based OS
   import_vars:
     vars: vars/debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: Install Prerequisites for Debian-based OS
   import_tasks:
     - debian.yml
   when: ansible_os_family == 'Debian'
 
-- name: Install Prerequisites for CentOS/RedHat-based OS
+- name: Import vars for CentOS/RedHat-based OS
   import_vars:
     vars: vars/redhat.yml
+  when: ansible_os_family == 'RedHat'
+
+- name: Install Prerequisites for CentOS/RedHat-based OS
   import_tasks:
     - redhat.yml
   when: ansible_os_family == 'RedHat'
