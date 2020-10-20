@@ -8,5 +8,5 @@
 - name: Install Prerequisite Packages
   yum:
     name: "{{ apt_prerequisites }}"
-  state: present
-  update_cache: True
+    state: present
+    update_cache: True
