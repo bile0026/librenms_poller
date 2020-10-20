@@ -68,3 +68,11 @@
     - /opt/librenms/logs/
     - /opt/librenms/bootstrap/cache/
     - /opt/librenms/storage/
+
+- name: Install PHP composer as librenms user
+  remote_user: librenms
+  become: True
+  become_user: "{{ ansible_ssh_user }}"
+  become_password: "{{ ansible_ssh_password }}"
+  shell: ./scripts/composer_wrapper.php install --no-dev
+  ansible_command_timeout: 3600
