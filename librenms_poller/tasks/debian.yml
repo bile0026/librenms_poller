@@ -31,7 +31,7 @@
 - name: Configure MariaDB Debian
   lineinfile:
     path: /etc/mysql/mariadb.conf.d/50-server.cnf
-    insertafter: '^\[mysqld\]'
+    insertafter: "^[mysqld]"
     line: |
       innodb_file_per_table=1
       lower_case_table_names=0
@@ -52,7 +52,7 @@
   lineinfile:
     path: /etc/php/{{ php_version }}/fpm/pool.d/librenms.conf
     regex: '\[www\]'
-    line: '\[librenms\]'
+    line: "[librenms]"
 
 - name: Update PHP-FPM user to librenms
   lineinfile:
