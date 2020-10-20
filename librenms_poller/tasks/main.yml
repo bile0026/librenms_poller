@@ -100,7 +100,10 @@
 #   delegate_to: "{{ core_server_fqdn }}"
 
 - name: Enable lnms command completion - link
-  shell: ln -s /opt/librenms/lnms /usr/local/bin/lnms
+  file:
+    src: /opt/librenms/lnms
+    dest: /usr/local/bin/lnms
+    state: link
 
 - name: Enable lnms command completion - copy file
   copy:
