@@ -77,7 +77,7 @@
   #remote_user: librenms
   become: True
   become_user: librenms
-  become_method: su
+  # become_method: su
   vars:
     ansible_command_timeout: 3600
   shell: ./scripts/composer_wrapper.php install --no-dev
