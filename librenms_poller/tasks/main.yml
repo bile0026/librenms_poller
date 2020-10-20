@@ -134,7 +134,7 @@
   copy:
     remote_src: True
     src: /opt/librenms/librenms.nonroot.cron
-    dest: /opt/cron.d/librenms
+    dest: /etc/cron.d/librenms
 
 - name: Copy logrotate config
   copy:
