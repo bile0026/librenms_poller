@@ -4,5 +4,6 @@
   gather_facts: True
 
   tasks:
-    import_role:
-      name: librenms_poller
+    - name: Import librenms_poller role
+      import_role:
+        name: librenms_poller
