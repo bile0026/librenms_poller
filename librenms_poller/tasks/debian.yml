@@ -1,7 +1,7 @@
 ---
 - name: Enable universe repository
   apt_repository:
-    repo: universe
+    repo: deb http://archive.ubuntu.com/ubuntu focal universe
     state: present
     update_cache: True
 
