@@ -13,3 +13,9 @@ Also, make sure you have pre-created your poller group on the core server in Set
 Assumes memcached, redis, and rrdcached are all installed on your core server.
 
 Needs to run with become in order to do all the things.
+
+run playbook with command:
+
+```
+ansible-playbook -i hosts deploy_librenms_poller.yml -u <username> -b -K
+```
