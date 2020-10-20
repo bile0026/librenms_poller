@@ -134,13 +134,13 @@
   copy:
     remote_src: True
     src: /opt/librenms/librenms.nonroot.cron
-    dst: /opt/cron.d/librenms
+    dest: /opt/cron.d/librenms
 
 - name: Copy logrotate config
   copy:
     remote_src: True
     src: /opt/librenms/misc/librenms.logrotate
-    dst: /etc/logrotate.d/librenms
+    dest: /etc/logrotate.d/librenms
 
 - name: Setup config.php config file for poller configuraiton
   template:
