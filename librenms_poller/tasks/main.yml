@@ -112,3 +112,13 @@
     name: snmpd
     state: restarted
     enabled: True
+
+- name: Copy Cron Job
+  copy:
+    src: /opt/librenms/librenms.nonroot.cron
+    dst: /opt/cron.d/librenms
+
+- name: Copy logrotate config
+  copy:
+    src: /opt/librenms/misc/librenms.logrotate
+    dst: /etc/logrotate.d/librenms
