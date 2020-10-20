@@ -29,7 +29,7 @@
       lower_case_table_names=0
 
 - name: Start and enable MariaDB Service
-  general.builtin.service:
+  service:
     name: mariadb
     state: restarted
     enabled: True

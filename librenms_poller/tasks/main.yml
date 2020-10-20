@@ -59,7 +59,7 @@
     mode: "771"
 
 - name: Grant librenms ACL permissions to rrd/logs/bootstrap
-  ansible.posix.acl:
+  posix.acl:
     path: "{{ item }}"
     entity: librenms
     etype: group
@@ -112,7 +112,7 @@
     mode: u+x,g+x,o+x
 
 - name: Enable and restart snmpd
-  ansible.builtin.service:
+  service:
     name: snmpd
     state: restarted
     enabled: True
