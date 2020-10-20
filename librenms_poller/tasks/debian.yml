@@ -9,7 +9,7 @@
 - name: Enable universe repository rasberry pi ARM
   apt_repository:
     repo: deb http://ports.ubuntu.com/ubuntu-ports focal universe
-    state: present
+    state: absent
     update_cache: True
   when: ansible_architecture is search("arm")
 
@@ -17,7 +17,6 @@
   apt:
     package: "{{ apt_prerequisites }}"
     state: present
-    update_cache: True
 
 - name: Set Timezone PHP Debian
   lineinfile:
