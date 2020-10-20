@@ -98,8 +98,7 @@
     dst: /etc/bash_completion.d/
 
 - name: Configure SNMPD
-  import_tasks:
-    - snmpd.yml
+  import_tasks: snmpd.yml
 
 - name: Download SNMP Distro
   get_url:
