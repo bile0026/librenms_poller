@@ -94,7 +94,7 @@
 #   delegate_to: "{{ core_server_fqdn }}"
 
 - name: Enable lnms command completion - link
-  shell: ln -s /opt/librenms/lnms /usr/loca/bin/lnms
+  shell: ln -s /opt/librenms/lnms /usr/local/bin/lnms
 
 - name: Enable lnms command completion - copy file
   copy:
