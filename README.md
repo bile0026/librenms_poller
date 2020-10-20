@@ -1,6 +1,6 @@
 # librenms_poller
 
-default structure for ansible
+- tested and developed on raspberry pi 3b+ running Ubuntu server 20.04 and ansible 2.9.10.
 
 First thing is to install the posix collection to manage ACLs, run this if using ansible. Tower or AWX will pick this up automatically.
 
