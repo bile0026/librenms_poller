@@ -58,3 +58,9 @@
     path: /etc/php/{{ php_version }}/fpm/pool.d/librenms.conf
     regex: '^group\ ='
     line: "group = librenms"
+
+- name: Update listen to a unique name
+  lineinfile:
+    path: /etc/php/{{ php_version }}/fpm/pool.d/librenms.conf
+    regex: '^listen\ ='
+    line: "listen = /run/php-fpm-librenms.sock"
