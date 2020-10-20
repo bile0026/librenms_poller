@@ -8,7 +8,7 @@
 - name: Install Prerequisite Packages
   apt:
     package: "{{ apt_prerequisites }}"
-  state: present
+    state: present
   update_cache: True
 
 - name: Set Timezone PHP Debian
