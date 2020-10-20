@@ -38,7 +38,7 @@
 
 - name: Check if Librenms repository exists
   stat:
-    path: /opt/librenms/
+    path: /opt/librenms/README.md
   register: stat_result
 
 - name: Download Librenms Repository
