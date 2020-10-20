@@ -3,7 +3,7 @@
   apt_repository:
     repo: universe
     state: present
-    update: True
+    update_cache: True
 
 - name: Install Prerequisite Packages
   apt:
