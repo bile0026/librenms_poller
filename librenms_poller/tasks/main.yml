@@ -36,11 +36,17 @@
     state: present
   when: webserver == 'apache' and ansible_os_family == 'RedHat'
 
+- name: Check if Librenms repository exists
+  stat:
+    path: /opt/librenms/
+  register: stat_result
+
 - name: Download Librenms Repository
   git:
     repo: https://github.com/librenms/librenms.git
     dest: /opt/librenms
     clone: True
+  when: not stat_result.stat.exists
 
 - name: Add Librenms user account
   user:
