@@ -9,3 +9,5 @@ ansible-galaxy collection install -r collections/requirements.yml
 ```
 
 Also, make sure you have pre-created your poller group on the core server in Settings>Poller>Poller Groups>Create new poller group.
+
+Assumes memcached, redis, and rrdcached are all installed on your core server.
