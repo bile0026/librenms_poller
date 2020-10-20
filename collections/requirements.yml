@@ -3,3 +3,6 @@ collections:
   - name: ansible.posix
     source: https://galaxy.ansible.com
     version: 1.1.1
+  - name: community.general
+    source: https://galaxy.ansible.com
+    version: 1.2.0
