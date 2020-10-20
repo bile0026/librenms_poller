@@ -21,7 +21,7 @@
 
 - name: Set Timezone PHP Debian
   lineinfile:
-    path: /etc/php.ini
+    path: "{{ item }}"
     regexp: "date.timezone"
     line: "date.timezone = {{ time_zone }}"
   with_items:
