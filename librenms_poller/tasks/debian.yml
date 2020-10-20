@@ -10,13 +10,13 @@
   apt_repository:
     repo: deb http://ports.ubuntu.com/ubuntu-ports focal universe
     state: absent
-    update_cache: True
   when: ansible_architecture is search("arm")
 
 - name: Install Prerequisite Packages
   apt:
     package: "{{ apt_prerequisites }}"
     state: present
+    update_cache: True
 
 - name: Set Timezone PHP Debian
   lineinfile:
