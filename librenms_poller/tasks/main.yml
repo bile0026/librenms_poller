@@ -76,3 +76,7 @@
   become_password: "{{ ansible_ssh_password }}"
   shell: ./scripts/composer_wrapper.php install --no-dev
   ansible_command_timeout: 3600
+
+- name: Set server timezone
+  community.general.timezone:
+    name: "{{ time_zone }}"
