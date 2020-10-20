@@ -1,0 +1,32 @@
+---
+apt_prerequisites:
+  - acl
+  - curl
+  - composer
+  - fping
+  - git
+  - graphviz
+  - imagemagick
+  - mariadb-client
+  - mariadb-server
+  - mtr-tiny
+  - nmap
+  - php-cli
+  - php-curl
+  - php-fpm
+  - php-gd
+  - php-json
+  - php-mbstring
+  - php-mysql
+  - php-snmp
+  - php-xml
+  - php-zip
+  - rrdtool
+  - snmp
+  - snmpd
+  - whois
+  - unzip
+  - python3-pymysql
+  - python3-dotenv
+  - python3-redis
+  - python3-setuptools
