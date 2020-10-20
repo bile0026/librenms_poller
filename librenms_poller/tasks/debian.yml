@@ -1,9 +1,19 @@
 ---
-- name: Enable universe repository
+- name: Enable universe repository x86
   apt_repository:
     repo: deb http://archive.ubuntu.com/ubuntu focal universe
     state: present
-    #update_cache: True
+    update_cache: True
+    update_cache_retries: 2
+  when: not ansible_architecture | search("arm")
+
+- name: Enable universe repository rasberry pi ARM
+  apt_repository:
+    repo: deb http://ports.ubuntu.com/ubuntu-ports focal universe
+    state: present
+    update_cache: True
+    update_cache_retries: 2
+  when: ansible_architecture | search("arm")
 
 - name: Install Prerequisite Packages
   apt:
