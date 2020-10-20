@@ -1,0 +1,12 @@
+---
+- name: Enable universe repository
+  apt_repository:
+    repo: universe
+    state: present
+    update: True
+
+- name: Install Prerequisite Packages
+  apt:
+    package: "{{ apt_prerequisites }}"
+  state: present
+  update_cache: True

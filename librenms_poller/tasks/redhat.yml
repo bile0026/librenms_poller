@@ -1,0 +1,12 @@
+---
+- name: Add EPEL Repository
+  yum_repository:
+    name: epel
+    description: EPEL YUM Repo
+    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+
+- name: Install Prerequisite Packages
+  yum:
+    name: "{{ apt_prerequisites }}"
+  state: present
+  update_cache: True
