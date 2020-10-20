@@ -59,7 +59,7 @@
     mode: "771"
 
 - name: Grant librenms ACL permissions to rrd/logs/bootstrap
-  posix.acl:
+  ansible.posix.acl:
     path: "{{ item }}"
     entity: librenms
     etype: group
