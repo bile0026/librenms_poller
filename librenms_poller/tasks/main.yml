@@ -1,2 +1,29 @@
 ---
 # tasks file for librenms_poller
+- name: Install Prerequisites for Debian-based OS
+  import_tasks:
+    - debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: Install Prerequisites for CentOS/RedHat-based OS
+  import_tasks:
+    - redhat.yml
+  when: ansible_os_family == 'RedHat'
+
+- name: Install Nginx Web Server
+  package:
+    name: nginx
+    state: present
+  when: "{{ webserver }} == 'nginx'"
+
+- name: Install Apache Web Server on Debian-based OS
+  package:
+    name: apache2
+    state: present
+  when: ("{{ webserver }} == 'apache'") and ansible_os_family == 'Debian'
+
+- name: Install Apache Web Server on CentOS/RedHat-based OS
+  package:
+    name: httpd
+    state: present
+  when: ("{{ webserver }} == 'apache'") and ansible_os_family == 'RedHat'
