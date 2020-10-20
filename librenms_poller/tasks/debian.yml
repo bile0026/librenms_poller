@@ -9,7 +9,7 @@
   apt:
     package: "{{ apt_prerequisites }}"
     state: present
-  update_cache: True
+    update_cache: True
 
 - name: Set Timezone PHP Debian
   lineinfile:
