@@ -75,7 +75,7 @@
 
 - name: Install PHP composer as librenms user
   remote_user: librenms
-  # become: True
+  become: True
   # become_user: "{{ ansible_ssh_user }}"
   vars:
     ansible_command_timeout: 3600
