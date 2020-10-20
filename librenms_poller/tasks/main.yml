@@ -125,3 +125,11 @@
   copy:
     src: /opt/librenms/misc/librenms.logrotate
     dst: /etc/logrotate.d/librenms
+
+- name: Setup config.php config file for poller configuraiton
+  template:
+    src: templates/config_php.j2
+    dst: /opt/librenms/config.php
+    owner: librenms
+    group: librenms
+    backup: True
