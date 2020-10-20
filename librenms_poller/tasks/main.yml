@@ -99,7 +99,7 @@
 - name: Enable lnms command completion - copy file
   copy:
     src: /opt/librenms/misc/lnms-completion.bash
-    dst: /etc/bash_completion.d/
+    dest: /etc/bash_completion.d/
 
 - name: Configure SNMPD
   import_tasks: snmpd.yml
