@@ -96,3 +96,19 @@
 - name: Configure SNMPD
   import_tasks:
     - snmpd.yml
+
+- name: Download SNMP Distro
+  get_url:
+    url: https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
+    dest: /usr/bin/distro
+
+- name: Set permissions on snmp distro
+  file:
+    path: /usr/bin/distro
+    mode: u+x,g+x,o+x
+
+- name: Enable and restart snmpd
+  ansible.builtin.service:
+    name: snmpd
+    state: restarted
+    enabled: True
