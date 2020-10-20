@@ -28,13 +28,13 @@
   package:
     name: apache2
     state: present
-  when: ("{{ webserver }} == 'apache'") and ansible_os_family == 'Debian'
+  when: webserver == 'apache' and ansible_os_family == 'Debian'
 
 - name: Install Apache Web Server on CentOS/RedHat-based OS
   package:
     name: httpd
     state: present
-  when: ("{{ webserver }} == 'apache'") and ansible_os_family == 'RedHat'
+  when: webserver == 'apache' and ansible_os_family == 'RedHat'
 
 - name: Add Librenms user account
   user:
