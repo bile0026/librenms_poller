@@ -45,8 +45,7 @@
 - name: Copy www.conf to librenms.conf
   copy:
     src: /etc/php/{{ php_version }}/fpm/pool.d/www.conf
-    dest: /etc/php/{{ php_version }}/fpm/pool.d/librenms.conf
-    backup: True
+    dst: /etc/php/{{ php_version }}/fpm/pool.d/librenms.conf
 
 - name: Change PHP-FPM www to librenms
   lineinfile:
