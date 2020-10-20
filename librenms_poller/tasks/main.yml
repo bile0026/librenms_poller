@@ -57,6 +57,7 @@
     owner: librenms
     group: librenms
     mode: "771"
+    recurse: True
 
 - name: Grant librenms ACL permissions to rrd/logs/bootstrap
   ansible.posix.acl:
