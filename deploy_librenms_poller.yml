@@ -5,6 +5,5 @@
 
   tasks:
     - name: Import librenms_poller role
-      become: True
       import_role:
         name: librenms_poller
