@@ -48,7 +48,7 @@
 - name: Download Librenms Repository
   git:
     repo: https://github.com/librenms/librenms.git
-    dest: /opt
+    dest: /opt/librenms
     clone: True
 
 - name: Chown librenms /opt/librenms
