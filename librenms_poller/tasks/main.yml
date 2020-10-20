@@ -22,7 +22,7 @@
   package:
     name: nginx
     state: present
-  when: "({{ webserver }} == 'nginx')"
+  when: webserver == 'nginx'
 
 - name: Install Apache Web Server on Debian-based OS
   package:
