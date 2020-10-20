@@ -19,3 +19,18 @@
   with_items:
     - /etc/php/{{ php_version }}/fpm/php.ini
     - /etc/php/{{ php_version }}/cli/php.ini
+
+- name: Configure MariaDB Debian
+  lineinfile:
+    path: /etc/mysql/mariadb.conf.d/50-server.cnf
+    insertafter: '^\[mysqld\]'
+    line: |
+      innodb_file_per_table=1
+      lower_case_table_names=0
+    state: present
+
+- name: Start and enable MariaDB Service
+  general.builtin.service:
+    name: mariadb
+    state: restarted
+    enabled: True

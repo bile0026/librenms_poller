@@ -80,3 +80,7 @@
 - name: Set server timezone
   community.general.timezone:
     name: "{{ time_zone }}"
+
+- name: Prepare MariaDB on Core server
+  script: scripts/mysql_setup.sh {{ mysql_password }} {{ poller_ip }}
+  delegate_to: "{{ core_server_fqdn }}"

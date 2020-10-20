@@ -3,3 +3,6 @@
 webserver: nginx
 timezone: America/Chicago
 php_version: 7.4 # for debian installs
+mysql_password: librenms
+poller_ip: 192.168.20.253
+core_server_fqdn: 192.168.252.58
