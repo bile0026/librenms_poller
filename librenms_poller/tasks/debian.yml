@@ -4,7 +4,6 @@
     repo: deb http://archive.ubuntu.com/ubuntu focal universe
     state: present
     update_cache: True
-    update_cache_retries: 2
   when: not ansible_architecture is search("arm")
 
 - name: Enable universe repository rasberry pi ARM
@@ -12,7 +11,6 @@
     repo: deb http://ports.ubuntu.com/ubuntu-ports focal universe
     state: present
     update_cache: True
-    update_cache_retries: 2
   when: ansible_architecture is search("arm")
 
 - name: Install Prerequisite Packages
