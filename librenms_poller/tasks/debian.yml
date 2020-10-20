@@ -27,7 +27,6 @@
     line: |
       innodb_file_per_table=1
       lower_case_table_names=0
-    state: present
 
 - name: Start and enable MariaDB Service
   general.builtin.service:
