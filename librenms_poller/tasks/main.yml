@@ -77,9 +77,8 @@
   remote_user: librenms
   become: True
   become_user: "{{ ansible_ssh_user }}"
-  become_password: "{{ ansible_ssh_password }}"
-  shell: ./scripts/composer_wrapper.php install --no-dev
   ansible_command_timeout: 3600
+  shell: ./scripts/composer_wrapper.php install --no-dev
 
 - name: Set server timezone
   community.general.timezone:
