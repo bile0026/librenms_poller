@@ -6,11 +6,12 @@
     update_cache: True
   when: not ansible_architecture is search("arm")
 
-- name: Enable universe repository rasberry pi ARM
-  apt_repository:
-    repo: deb http://ports.ubuntu.com/ubuntu-ports focal universe
-    state: absent
-  when: ansible_architecture is search("arm")
+# Not necessary?
+# - name: Enable universe repository rasberry pi ARM
+#   apt_repository:
+#     repo: deb http://ports.ubuntu.com/ubuntu-ports focal universe
+#     state: absent
+#   when: ansible_architecture is search("arm")
 
 - name: Install Prerequisite Packages
   apt:
