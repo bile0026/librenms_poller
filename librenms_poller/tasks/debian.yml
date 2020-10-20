@@ -44,6 +44,7 @@
 
 - name: Copy www.conf to librenms.conf
   copy:
+    remote_src: True
     src: /etc/php/{{ php_version }}/fpm/pool.d/www.conf
     dest: /etc/php/{{ php_version }}/fpm/pool.d/librenms.conf
 
