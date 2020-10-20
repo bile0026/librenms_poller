@@ -81,6 +81,8 @@
   vars:
     ansible_command_timeout: 3600
   shell: ./scripts/composer_wrapper.php install --no-dev
+  args:
+    chdir: /opt/librenms
 
 - name: Set server timezone
   community.general.timezone:
