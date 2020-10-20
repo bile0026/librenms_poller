@@ -6,8 +6,7 @@
   when: ansible_os_family == 'Debian'
 
 - name: Install Prerequisites for Debian-based OS
-  import_tasks:
-    - debian.yml
+  import_tasks: debian.yml
   when: ansible_os_family == 'Debian'
 
 - name: Import vars for CentOS/RedHat-based OS
@@ -16,8 +15,7 @@
   when: ansible_os_family == 'RedHat'
 
 - name: Install Prerequisites for CentOS/RedHat-based OS
-  import_tasks:
-    - redhat.yml
+  import_tasks: redhat.yml
   when: ansible_os_family == 'RedHat'
 
 - name: Install Nginx Web Server
