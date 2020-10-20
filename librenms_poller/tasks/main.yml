@@ -84,3 +84,15 @@
 - name: Prepare MariaDB on Core server
   script: scripts/mysql_setup.sh {{ mysql_password }} {{ poller_ip }}
   delegate_to: "{{ core_server_fqdn }}"
+
+- name: Enable lnms command completion - link
+  shell: ln -s /opt/librenms/lnms /usr/loca/bin/lnms
+
+- name: Enable lnms command completion - copy file
+  copy:
+    src: /opt/librenms/misc/lnms-completion.bash
+    dst: /etc/bash_completion.d/
+
+- name: Configure SNMPD
+  import_tasks:
+    - snmpd.yml
