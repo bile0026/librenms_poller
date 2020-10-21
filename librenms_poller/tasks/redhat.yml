@@ -4,12 +4,17 @@
     name: epel-release
     state: present
 
+- name: Add Remi repo for PHP
+  dnf:
+    name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+    state: present
+
 - name: Enable PHP {{ php_version }} Module
   shell:
     cmd: "{{ item }}"
   with_items:
     - dnf module reset php
-    - dnf module enable php:{{ php_version }}
+    - dnf module enable php:remi-{{ php_version }}
 
 - name: Install Prerequisite Packages on RedHat-based OS
   dnf:
