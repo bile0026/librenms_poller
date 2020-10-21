@@ -5,11 +5,10 @@
     description: EPEL YUM Repo
     baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
 
-- name: Install Prerequisite Packages
+- name: Install Prerequisite Packages on RedHat-based OS
   yum:
-    name: "{{ apt_prerequisites }}"
+    name: "{{ yum_prerequisites }}"
     state: present
-    update_cache: True
 
 - name: Disable SELinux
   ansible.posix.selinux:
