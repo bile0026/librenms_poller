@@ -45,6 +45,9 @@
     host: "{{ poller_ip }}"
     password: "{{ mysql_password }}"
     priv: "librenms.*:ALL"
+    login_host: localhost
+    login_user: root
+    login_password: ""
     state: present
 
 - name: Start and enable MariaDB Service
