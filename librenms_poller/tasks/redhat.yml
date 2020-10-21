@@ -14,7 +14,7 @@
     cmd: "{{ item }}"
   with_items:
     - dnf module reset php
-    - dnf module enable php:remi-{{ php_version }}
+    - dnf module enable php:remi-{{ php_version }} -y
 
 - name: Install Prerequisite Packages on RedHat-based OS
   dnf:
