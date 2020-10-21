@@ -5,27 +5,27 @@
   include_vars:
     file: vars/raspian.yml
   when:
-    - ansible_lsb.id exists
+    - ansible_lsb.id
     - ansible_lsb.id == 'Raspbian'
 
 - name: Install Prerequisites for RaspbianOS
   import_tasks: raspian.yml
   when:
-    - ansible_lsb.id exists
+    - ansible_lsb.id
     - ansible_lsb.id == 'Raspbian'
 
 - name: Import vars for Debian-based OS
   include_vars:
     file: vars/debian.yml
   when:
-    - ansible_lsb.id exists
+    - ansible_lsb.id
     - not ansible_lsb.id == 'Raspbian'
     - ansible_os_family == 'Debian'
 
 - name: Install Prerequisites for Debian-based OS
   import_tasks: debian.yml
   when:
-    - ansible_lsb.id exists
+    - ansible_lsb.id
     - not ansible_lsb.id == 'Raspbian'
     - ansible_os_family == 'Debian'
 
