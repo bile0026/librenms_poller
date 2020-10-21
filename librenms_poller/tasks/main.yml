@@ -170,4 +170,4 @@
 
 - name: Print results
   debug:
-    var: validate_results
+    var: validate_results.stdout_lines
