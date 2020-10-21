@@ -6,6 +6,7 @@
 
 - still working out details on how to authorize poller to the mariadb instance on the core server, for now have to do this manually
 - Disabled SELinux on RedHat-based systems until I have time to do the proper policies
+- using shell for dnf PHP commands on RedHat, once dnf_module is released need to update to this.
 
 ```
 GRANT ALL PRIVILEGES ON librenms.* TO 'librenms'@'IP_OF_NEW_POLLER' IDENTIFIED BY 'The_Password_You_Chose' WITH GRANT OPTION;
