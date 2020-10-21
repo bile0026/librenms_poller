@@ -199,10 +199,20 @@
     src: /opt/librenms/misc/librenms.logrotate
     dest: /etc/logrotate.d/librenms
 
+- name: Configure database settings in /opt/librenms/.env
+  lineinfile:
+    path: /opt/librenms/.env
+    insertafter: "^APP_KEY="
+    line: |
+      DB_HOST={{ core_server_fqdn }}
+      DB_DATABASE=librenms
+      DB_USERNAME={{ mysql_user }}
+      DB_PASSWORD={{ mysql_password }}
+
 - name: Update APP_KEY in /opt/librenms/.env
   lineinfile:
     path: /opt/librenms/.env
-    regex: "APP_KEY="
+    regex: "^APP_KEY="
     line: "APP_KEY={{ app_key }}"
 
 - name: Setup config.php config file for poller configuraiton
