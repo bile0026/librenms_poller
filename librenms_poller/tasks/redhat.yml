@@ -24,11 +24,13 @@
 - name: Disable SELinux
   ansible.posix.selinux:
     state: disabled
+  register: selinux_result
 
 - name: Reboot poller device
   reboot:
     reboot_timeout: 360
     msg: "Reboot via ansible, please save all work."
+  when: selinux_result.changed
 
 - name: Set Timezone PHP RedHat
   lineinfile:
