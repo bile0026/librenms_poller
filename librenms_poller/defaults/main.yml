@@ -9,7 +9,7 @@ core_server_fqdn: 192.168.252.58
 snmp_string: public
 poller_name: test-pi
 poller_group_number: 2
-core_db_user: librenms
-core_db_password: librenms
-mariadb_root_pass: librenms
+#core_db_user: librenms
+#core_db_password: librenms
+#mariadb_root_pass: librenms
 app_key: 123456
