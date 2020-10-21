@@ -1,9 +1,8 @@
 ---
 - name: Add EPEL Repository
-  yum_repository:
-    name: epel
-    description: EPEL YUM Repo
-    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/Everything/$basearch/
+  dnf:
+    name: epel-release
+    state: present
 
 - name: Enable PHP {{ php_version }} Module
   shell:
