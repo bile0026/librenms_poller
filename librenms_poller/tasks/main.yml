@@ -28,6 +28,24 @@
   import_tasks: redhat.yml
   when: ansible_os_family == 'RedHat'
 
+- name: Remove Nginx when wanted Apache
+  package:
+    name: nginx
+    state: absent
+  when: webserver == 'apache'
+
+- name: Remove Apache from Debian based-server when wanted Nginx
+  package:
+    name: apache2
+    state: absent
+  when: webserver == 'nginx' and ansible_os_family == 'Debian'
+
+- name: Remove Apache from RedHat based-server when wanted Nginx
+  package:
+    name: httpd
+    state: absent
+  when: webserver == 'nginx' and ansible_os_family == 'RedHat'
+
 - name: Install Nginx Web Server
   package:
     name: nginx
