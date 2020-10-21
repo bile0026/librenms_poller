@@ -32,7 +32,7 @@
   package:
     name: nginx
     state: present
-  when: webserver == 'nginx'
+  when: not ansible_lsb.id == 'Raspbian' and webserver == 'nginx'
 
 - name: Install Apache Web Server on Debian-based OS
   package:
