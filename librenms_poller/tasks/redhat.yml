@@ -3,7 +3,7 @@
   yum_repository:
     name: epel
     description: EPEL YUM Repo
-    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/Everything/$basearch/
 
 - name: Install Prerequisite Packages on RedHat-based OS
   yum:
