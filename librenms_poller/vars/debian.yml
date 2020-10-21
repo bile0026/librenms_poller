@@ -8,6 +8,7 @@ apt_prerequisites:
   - graphviz
   - imagemagick
   - mariadb-client
+  - memcached
   #- mariadb-server
   - mtr-tiny
   - nmap
