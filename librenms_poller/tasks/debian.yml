@@ -56,7 +56,7 @@
     priv: "librenms.*:ALL"
     update_password: on_create
     state: present
-  no_log: True
+    #no_log: True
 
 - name: Start and enable MariaDB Service
   service:
