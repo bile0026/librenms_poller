@@ -1,9 +1,15 @@
 ---
 # tasks file for librenms_poller
+
+- name: Import vars for RaspianOS
+  include_vars:
+    file: vars/raspian.yml
+  when: ansible_lsb.id == 'Raspian'
+
 - name: Import vars for Debian-based OS
   include_vars:
     file: vars/debian.yml
-  when: ansible_os_family == 'Debian'
+  when: not ansible_lsb.id == 'Raspian' and ansible_os_family == 'Debian'
 
 - name: Install Prerequisites for Debian-based OS
   import_tasks: debian.yml
