@@ -149,6 +149,12 @@
     src: /opt/librenms/misc/librenms.logrotate
     dest: /etc/logrotate.d/librenms
 
+- name: Update APP_KEY in /opt/librenms/.env
+  lineinfile:
+    path: /opt/librenms/.env
+    regex: "APP_KEY="
+    line: "APP_KEY={{ app_key }}"
+
 - name: Setup config.php config file for poller configuraiton
   template:
     src: templates/config_php.j2
