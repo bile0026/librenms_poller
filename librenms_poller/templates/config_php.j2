@@ -43,7 +43,7 @@ $config['distributed_poller_memcached_host'] = "{{ core_server_fqdn }}";
 $config['distributed_poller_memcached_port'] = 11211;
 $config['distributed_poller']                = true;
 $config['rrdcached']                         = "{{ core_server_fqdn }}:42217";
-$config['rrdtool_version'] = '1.7.0';
+$config['rrdtool_version']                   = '{{ rrdcached_version }}';
 $config['update']                            = 0;
 
 
