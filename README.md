@@ -1,6 +1,6 @@
 # librenms_poller
 
-- tested and developed on raspberry pi 3b+ running Ubuntu server 20.04/Raspbian Stretch and ansible 2.9.10. Also tested on CentOS 8 (x86).
+- tested and developed on raspberry pi 3b+ (should work work on a RP 4) running Ubuntu server 20.04/Raspbian Stretch & Buster, using ansible 2.9.10. Also tested on CentOS 8 (x86).
 
 # Current issues:
 
