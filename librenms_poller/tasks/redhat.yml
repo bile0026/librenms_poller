@@ -9,12 +9,18 @@
     name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
     state: present
 
+- name: Check for PHP {{ php_version }} installed
+  shell:
+    cmd: php -v
+  register: php_result
+
 - name: Enable PHP {{ php_version }} Module
   shell:
     cmd: "{{ item }}"
   with_items:
     - dnf module reset php
     - dnf module enable php:remi-{{ php_version }} -y
+  when: not php_result.stdout is search("{{ php_version }}")
 
 - name: Install Prerequisite Packages on RedHat-based OS
   dnf:
