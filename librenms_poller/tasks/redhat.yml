@@ -25,9 +25,9 @@
   ansible.posix.selinux:
     state: disabled
 
-- name: Reboot poller
+- name: Reboot poller device
   reboot:
-    reboot_timeout: 120
+    reboot_timeout: 360
     msg: "Reboot via ansible, please save all work."
 
 - name: Set Timezone PHP RedHat
