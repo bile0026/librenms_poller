@@ -11,7 +11,7 @@
 - name: Install Prerequisites for RaspbianOS
   import_tasks: raspian.yml
   when:
-    - ansible_lsb.id
+    - ansible_lsb.id is defined
     - ansible_lsb.id == 'Raspbian'
 
 - name: Import vars for Debian-based OS
