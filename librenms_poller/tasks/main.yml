@@ -95,16 +95,16 @@
   community.general.timezone:
     name: "{{ time_zone }}"
 
-- name: Create Logins for MariaDB On Core Server
-  community.mysql.mysql_user:
-    name: librenms
-    host: "{{ poller_ip }}"
-    password: "{{ mysql_password }}"
-    priv: "librenms.*:ALL"
-    state: present
-    login_host: "{{ core_server_fqdn }}"
-    login_user: "{{ core_db_user }}"
-    login_password: "{{ core_db_password }}"
+# - name: Create Logins for MariaDB On Core Server
+#   community.mysql.mysql_user:
+#     name: librenms
+#     host: "{{ poller_ip }}"
+#     password: "{{ mysql_password }}"
+#     priv: "librenms.*:ALL"
+#     state: present
+#     login_host: "{{ core_server_fqdn }}"
+#     login_user: "{{ core_db_user }}"
+#     login_password: "{{ core_db_password }}"
 
 - name: Enable lnms command completion - link
   file:
