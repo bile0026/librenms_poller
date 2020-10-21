@@ -45,11 +45,14 @@ vars to set (defaults):
 webserver: nginx (nginx or apache, nginx reccomended)
 time_zone: America/Chicago (your timezone)
 php_version: 7.4 # for debian installs
-mysql_password: librenms (password for mysql database)
+rrdcached_version: 1.7.0 # needs to match core server
+mysql_user: librenms (password for mysql database on core server)
+mysql_password: librenms (password for mysql database on core server)
+mysql_db: librenms (mysql database name on core server)
 poller_ip: 192.168.20.253 (ip address of your poller device)
-core_server_fqdn: 192.168.252.58 (ip or fqdn of your core server)
-snmp_string: public (default snmp string for the poller)
 poller_name: test-pi (name of the poller)
 poller_group_number: 2 (poller group member, make sure groups is created in core first)
+core_server_fqdn: 192.168.252.58 (ip or fqdn of your core server)
+snmp_string: public (default snmp string for the poller)
 app_key: 123456 (APP_KEY from /opt/librename/.env from your core server)
 ```
