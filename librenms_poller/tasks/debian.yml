@@ -42,7 +42,7 @@
     dest: /root/.my.cnf
     owner: root
     group: root
-    mode: 0600
+    mode: 0644
   notify: restart mariadb
 
 # - name: Prepare MariaDB on remote host
@@ -58,6 +58,7 @@
     priv: "librenms.*:ALL"
     update_password: on_create
     state: present
+  no_log: True
 
 - name: Start and enable MariaDB Service
   service:
