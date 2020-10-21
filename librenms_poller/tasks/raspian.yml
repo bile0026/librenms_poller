@@ -24,7 +24,7 @@
   apt_repository:
     repo: "deb https://packages.sury.org/php/ {{ ansible_lsb.codename }} main"
     state: present
-    validate_certs: False
+    #validate_certs: False
 
 - name: Install PHP {{ php_version }}
   apt:
