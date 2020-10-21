@@ -39,6 +39,7 @@
 # - name: Prepare MariaDB on remote host
 #   script: scripts/mysql_setup.sh {{ mysql_password }} {{ poller_ip }}
 - name: Create Logins for MariaDB On Remote Host
+  become: True
   community.mysql.mysql_user:
     name: librenms
     host: "{{ poller_ip }}"
