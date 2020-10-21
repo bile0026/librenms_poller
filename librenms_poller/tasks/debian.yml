@@ -39,14 +39,15 @@
 # - name: Prepare MariaDB on remote host
 #   script: scripts/mysql_setup.sh {{ mysql_password }} {{ poller_ip }}
 - name: Create Logins for MariaDB On Poller
+  become: True
   community.mysql.mysql_user:
+    check_implicit_admin: True
+    login_user: root
+    login_password: ""
     name: librenms
     host: "{{ poller_ip }}"
     password: "{{ mysql_password }}"
     priv: "librenms.*:ALL"
-    check_implicit_admin: True
-    login_host: localhost
-    login_user: root
     state: present
 
 - name: Start and enable MariaDB Service
