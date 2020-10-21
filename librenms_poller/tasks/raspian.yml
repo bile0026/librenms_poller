@@ -12,10 +12,10 @@
     state: present
     update_cache: True
 
-# - name: Get GPG key
-#   get_url:
-#     url: https://packages.sury.org/php/apt.gpg
-#     dest: /etc/apt/trusted.gpg.d/php.gpg
+- name: Get GPG key
+  get_url:
+    url: https://packages.sury.org/php/apt.gpg
+    dest: /etc/apt/trusted.gpg.d/php.gpg
 
 - name: Add Repo to sources.list
   apt_repository:

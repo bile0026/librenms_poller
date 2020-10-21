@@ -7,7 +7,7 @@
   when: ansible_lsb.id == 'Raspbian'
 
 - name: Install Prerequisites for RaspbianOS
-  import_tasks: debian.yml
+  import_tasks: raspian.yml
   when: ansible_lsb.id == 'Raspbian'
 
 - name: Import vars for Debian-based OS
