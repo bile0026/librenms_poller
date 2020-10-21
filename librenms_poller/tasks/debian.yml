@@ -40,6 +40,7 @@
 #   script: scripts/mysql_setup.sh {{ mysql_password }} {{ poller_ip }}
 - name: Create Logins for MariaDB On Poller
   become: True
+  become_method: sudo
   community.mysql.mysql_user:
     name: librenms
     host: "{{ poller_ip }}"
