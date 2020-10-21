@@ -39,7 +39,7 @@
 - name: Copy my.cnf to server
   template:
     src: templates/my_cnf.j2
-    dest: /root/my.cnf
+    dest: /root/.my.cnf
     mode: 0600
 
 # - name: Prepare MariaDB on remote host
