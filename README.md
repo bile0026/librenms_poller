@@ -4,9 +4,10 @@
 
 # Current issues:
 
+- rrdcached configuration is not correct yet, so not connecting to core
 - still working out details on how to authorize poller to the mariadb instance on the core server, for now have to do this manually
 - Disabled SELinux on RedHat-based systems until I have time to do the proper policies
-- using shell for dnf PHP commands on RedHat, once dnf_module is released need to update to this.
+- using shell for dnf PHP commands on RedHat, once dnf_module is released need to update to this
 - Possibly convert librenms php composer script to use ansible modules
 
 ```
