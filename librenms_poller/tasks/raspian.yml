@@ -28,7 +28,7 @@
 
 - name: Install PHP {{ php_version }}
   apt:
-    package: "php{{php_version}}"
+    package: "php{{ php_version }}"
     state: present
     update_cache: True
 
