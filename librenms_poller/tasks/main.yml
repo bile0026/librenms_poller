@@ -6,14 +6,14 @@
     file: vars/raspian.yml
   when: ansible_lsb.id == 'Raspbian'
 
+- name: Install Prerequisites for RaspbianOS
+  import_tasks: debian.yml
+  when: ansible_lsb.id == 'Raspbian'
+
 - name: Import vars for Debian-based OS
   include_vars:
     file: vars/debian.yml
   when: not ansible_lsb.id == 'Raspbian' and ansible_os_family == 'Debian'
-
-- name: Install Prerequisites for RaspbianOS
-  import_tasks: debian.yml
-  when: ansible_lsb.id == 'Raspbian'
 
 - name: Install Prerequisites for Debian-based OS
   import_tasks: debian.yml
