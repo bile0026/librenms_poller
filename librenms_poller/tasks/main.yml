@@ -205,7 +205,7 @@
     insertafter: "^APP_KEY="
     line: |
       DB_HOST={{ core_server_fqdn }}
-      DB_DATABASE=librenms
+      DB_DATABASE={{ mysql_db }}
       DB_USERNAME={{ mysql_user }}
       DB_PASSWORD={{ mysql_password }}
 
