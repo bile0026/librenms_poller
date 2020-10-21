@@ -45,8 +45,6 @@
     mode: 0644
   notify: restart mariadb
 
-# - name: Prepare MariaDB on remote host
-#   script: scripts/mysql_setup.sh {{ mysql_password }} {{ poller_ip }}
 - name: Create Logins for MariaDB On Poller
   become: True
   community.mysql.mysql_user:
