@@ -4,20 +4,30 @@
 - name: Import vars for RaspbianOS
   include_vars:
     file: vars/raspian.yml
-  when: ansible_lsb.id == 'Raspbian'
+  when:
+    - ansible_lsb.id exists
+    - ansible_lsb.id == 'Raspbian'
 
 - name: Install Prerequisites for RaspbianOS
   import_tasks: raspian.yml
-  when: ansible_lsb.id == 'Raspbian'
+  when:
+    - ansible_lsb.id exists
+    - ansible_lsb.id == 'Raspbian'
 
 - name: Import vars for Debian-based OS
   include_vars:
     file: vars/debian.yml
-  when: not ansible_lsb.id == 'Raspbian' and ansible_os_family == 'Debian'
+  when:
+    - ansible_lsb.id exists
+    - not ansible_lsb.id == 'Raspbian'
+    - ansible_os_family == 'Debian'
 
 - name: Install Prerequisites for Debian-based OS
   import_tasks: debian.yml
-  when: not ansible_lsb.id == 'Raspbian' and ansible_os_family == 'Debian'
+  when:
+    - ansible_lsb.id exists
+    - not ansible_lsb.id == 'Raspbian'
+    - ansible_os_family == 'Debian'
 
 - name: Import vars for CentOS/RedHat-based OS
   include_vars:
@@ -38,31 +48,42 @@
   package:
     name: apache2
     state: absent
-  when: webserver == 'nginx' and ansible_os_family == 'Debian'
+  when:
+    - webserver == 'nginx'
+    - ansible_os_family == 'Debian'
 
 - name: Remove Apache from RedHat based-server when wanted Nginx
   package:
     name: httpd
     state: absent
-  when: webserver == 'nginx' and ansible_os_family == 'RedHat'
+  when:
+    - webserver == 'nginx'
+    - ansible_os_family == 'RedHat'
 
 - name: Install Nginx Web Server
   package:
     name: nginx
     state: present
-  when: not ansible_lsb.id == 'Raspbian' and webserver == 'nginx'
+  when:
+    - ansible_lsb.id exists
+    - not ansible_lsb.id == 'Raspbian'
+    - webserver == 'nginx'
 
 - name: Install Apache Web Server on Debian-based OS
   package:
     name: apache2
     state: present
-  when: webserver == 'apache' and ansible_os_family == 'Debian'
+  when:
+    - webserver == 'apache'
+    - ansible_os_family == 'Debian'
 
 - name: Install Apache Web Server on CentOS/RedHat-based OS
   package:
     name: httpd
     state: present
-  when: webserver == 'apache' and ansible_os_family == 'RedHat'
+  when:
+    - webserver == 'apache'
+    - ansible_os_family == 'RedHat'
 
 - name: Check if Librenms repository exists
   stat:
