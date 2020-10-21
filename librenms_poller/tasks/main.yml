@@ -65,7 +65,7 @@
     name: nginx
     state: present
   when:
-    - ansible_lsb.id exists
+    - ansible_lsb.id is defined
     - not ansible_lsb.id == 'Raspbian'
     - webserver == 'nginx'
 
