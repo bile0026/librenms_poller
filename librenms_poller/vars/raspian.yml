@@ -1,4 +1,5 @@
 ---
+#php_version: 7.0
 apt_prerequisites:
   - acl
   - curl
@@ -12,17 +13,17 @@ apt_prerequisites:
   #- mariadb-server
   - mtr-tiny
   - nmap
-  - php-cli
-  - php-curl
-  - php-fpm
-  - php-gd
-  - php-json
-  - php-memcached
-  - php-mbstring
-  - php-mysql
-  - php-snmp
-  - php-xml
-  - php-zip
+  - php{{ php_version }}-cli
+  - php{{ php_version }}-curl
+  - php{{ php_version }}-fpm
+  - php{{ php_version }}-gd
+  - php{{ php_version }}-json
+  - php{{ php_version }}-memcached
+  - php{{ php_version }}-mbstring
+  - php{{ php_version }}-mysql
+  - php{{ php_version }}-snmp
+  - php{{ php_version }}-xml
+  - php{{ php_version }}-zip
   - rrdtool
   - snmp
   - snmpd
