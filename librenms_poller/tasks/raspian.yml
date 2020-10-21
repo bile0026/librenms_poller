@@ -6,7 +6,7 @@
     update_cache: True
   when: not ansible_architecture is search("arm")
 
-- name: Install Prerequisites for PHP
+- name: Install Raspbian Prerequisites for PHP
   apt:
     package: lsb-release apt-transport-https ca-certificates
     state: present
@@ -36,7 +36,7 @@
 #     state: absent
 #   when: ansible_architecture is search("arm")
 
-- name: Install Prerequisite Packages
+- name: Install Raspbian Prerequisite Packages
   apt:
     package: "{{ apt_prerequisites }}"
     state: present

@@ -13,7 +13,7 @@
 #     state: absent
 #   when: ansible_architecture is search("arm")
 
-- name: Install Prerequisite Packages
+- name: Install Debian Prerequisite Packages
   apt:
     package: "{{ apt_prerequisites }}"
     state: present
