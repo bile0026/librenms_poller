@@ -8,7 +8,10 @@
 
 - name: Install Raspbian Prerequisites for PHP
   apt:
-    package: lsb-release apt-transport-https ca-certificates
+    package:
+      - lsb-release
+      - apt-transport-https
+      - ca-certificates
     state: present
     update_cache: True
 
