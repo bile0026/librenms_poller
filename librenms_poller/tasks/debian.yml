@@ -44,6 +44,7 @@
     host: "{{ poller_ip }}"
     password: "{{ mysql_password }}"
     priv: "librenms.*:ALL"
+    check_implicit_admin: True
     login_host: localhost
     login_user: root
     state: present
