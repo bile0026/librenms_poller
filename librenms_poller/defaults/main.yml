@@ -4,7 +4,7 @@ webserver: nginx
 time_zone: America/Chicago
 php_version: 7.4 # for debian installs
 mysql_password: librenms
-poller_ip: 192.168.20.253
+poller_ip: 192.168.250.5
 core_server_fqdn: 192.168.252.58
 snmp_string: public
 poller_name: test-pi
