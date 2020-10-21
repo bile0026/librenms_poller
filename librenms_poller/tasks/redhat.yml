@@ -13,6 +13,7 @@
   shell:
     cmd: php -v
   register: php_result
+  ignore_errors: True
 
 - name: Enable PHP {{ php_version }} Module
   shell:
