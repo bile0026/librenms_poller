@@ -5,7 +5,7 @@ yum_prerequisites:
   - fping
   - git
   - ImageMagick
-  - mariadb-server
+  - mariadb-client
   - mtr
   - net-snmp
   - net-snmp-utils
