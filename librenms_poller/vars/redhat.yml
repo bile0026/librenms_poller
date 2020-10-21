@@ -6,7 +6,7 @@ yum_prerequisites:
   - git
   - ImageMagick
   - mariadb-client
-  - memcached
+  #- memcached
   - mtr
   - net-snmp
   - net-snmp-utils
@@ -17,6 +17,7 @@ yum_prerequisites:
   - php-curl
   - php-gd
   - php-json
+  - php-memcached
   - php-mbstring
   - php-process
   - php-snmp

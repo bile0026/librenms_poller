@@ -8,7 +8,7 @@ apt_prerequisites:
   - graphviz
   - imagemagick
   - mariadb-client
-  - memcached
+  #- memcached
   #- mariadb-server
   - mtr-tiny
   - nmap
@@ -17,6 +17,7 @@ apt_prerequisites:
   - php-fpm
   - php-gd
   - php-json
+  - php-memcached
   - php-mbstring
   - php-mysql
   - php-snmp
