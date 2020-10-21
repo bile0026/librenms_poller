@@ -1,6 +1,7 @@
 # librenms_poller
 
 - tested and developed on raspberry pi 3b+ (should work work on a RP 4) running Ubuntu server 20.04/Raspbian Stretch & Buster, using ansible 2.9.10. Also tested on CentOS 8 (x86).
+- Make sure to deploy from tags as master branch should be considered development/experimental.
 
 # Current issues:
 
