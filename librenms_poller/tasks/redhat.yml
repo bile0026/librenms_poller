@@ -93,29 +93,29 @@
 - name: Copy www.conf to librenms.conf
   copy:
     remote_src: True
-    src: /etc/php/{{ php_version }}/fpm/pool.d/www.conf
-    dest: /etc/php/{{ php_version }}/fpm/pool.d/librenms.conf
+    src: /etc/php-fpm.d/www.conf
+    dest: /etc/php-fpm.d/librenms.conf
 
 - name: Change PHP-FPM www to librenms
   lineinfile:
-    path: /etc/php/{{ php_version }}/fpm/pool.d/librenms.conf
+    path: /etc/php-fpm.d/librenms.conf
     regex: '\[www\]'
     line: "[librenms]"
 
 - name: Update PHP-FPM user to librenms
   lineinfile:
-    path: /etc/php/{{ php_version }}/fpm/pool.d/librenms.conf
+    path: /etc/php-fpm.d/librenms.conf
     regex: '^user\ ='
     line: "user = librenms"
 
 - name: Update PHP-FPM group to librenms
   lineinfile:
-    path: /etc/php/{{ php_version }}/fpm/pool.d/librenms.conf
+    path: /etc/php-fpm.d/librenms.conf
     regex: '^group\ ='
     line: "group = librenms"
 
 - name: Update listen to a unique name
   lineinfile:
-    path: /etc/php/{{ php_version }}/fpm/pool.d/librenms.conf
+    path: /etc/php-fpm.d/librenms.conf
     regex: '^listen\ ='
     line: "listen = /run/php-fpm-librenms.sock"
