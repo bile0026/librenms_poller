@@ -38,6 +38,8 @@
 
 - name: Prepare MariaDB on remote host
   script: scripts/mysql_setup.sh {{ mysql_password }} {{ poller_ip }}
+  async: 60
+  poll: 60
 
 - name: Start and enable MariaDB Service
   service:
