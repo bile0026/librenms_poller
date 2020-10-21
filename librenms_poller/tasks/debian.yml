@@ -40,7 +40,10 @@
   template:
     src: templates/my_cnf.j2
     dest: /root/.my.cnf
+    owner: root
+    group: root
     mode: 0600
+  notify: restart mariadb
 
 # - name: Prepare MariaDB on remote host
 #   script: scripts/mysql_setup.sh {{ mysql_password }} {{ poller_ip }}
