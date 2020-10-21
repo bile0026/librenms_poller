@@ -16,7 +16,7 @@ GRANT ALL PRIVILEGES ON librenms.* TO 'librenms'@'IP_OF_NEW_POLLER' IDENTIFIED B
 or, less secure, allow login with that user from any IP
 
 ```
-GRANT ALL PRIVILEGES ON librenms.* TO 'librenms'@'*' IDENTIFIED BY 'The_Password_You_Chose' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON librenms.* TO 'librenms'@'%' IDENTIFIED BY 'The_Password_You_Chose' WITH GRANT OPTION;
 ```
 
 First thing is to install the posix collection to manage ACLs, run this if using ansible. Tower or AWX will pick this up automatically.
