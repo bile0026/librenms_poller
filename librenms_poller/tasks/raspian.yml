@@ -12,16 +12,16 @@
     state: present
     update_cache: True
 
-- name: Get GPG key
-  get_url:
-    url: https://packages.sury.org/php/apt.gpg
-    dest: /etc/apt/trusted.gpg.d/php.gpg
+# - name: Get GPG key
+#   get_url:
+#     url: https://packages.sury.org/php/apt.gpg
+#     dest: /etc/apt/trusted.gpg.d/php.gpg
 
 - name: Add Repo to sources.list
-  lineinfile:
-    path: /etc/apt/sources.list.d/php.list
-    line: "deb https://packages.sury.org/php/ {{ ansible_lsb.codename }} main"
-    create: True
+  apt_repository:
+    repo: "deb https://packages.sury.org/php/ {{ ansible_lsb.codename }} main"
+    state: present
+    validate_certs: False
 
 - name: Install PHP {{ php_version }}
   apt:
