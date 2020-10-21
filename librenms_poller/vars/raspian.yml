@@ -24,7 +24,7 @@ apt_prerequisites:
   - php{{ php_version }}-snmp
   - php{{ php_version }}-xml
   - php{{ php_version }}-zip
-  - rrdcached={{ rrdcached_version }}
+  #- rrdcached={{ rrdcached_version }}
   - rrdtool
   - snmp
   - snmpd
