@@ -10,3 +10,94 @@
     name: "{{ apt_prerequisites }}"
     state: present
     update_cache: True
+
+- name: Disable SELinux
+  ansible.posix.selinux:
+    state: disabled
+
+- name: Reboot poller
+  reboot:
+    reboot_timeout: 120
+    msg: "Reboot via ansible, please save all work."
+
+- name: Set Timezone PHP RedHat
+  lineinfile:
+    path: /etc/php.ini
+    regexp: "date.timezone"
+    line: "date.timezone = {{ time_zone }}"
+
+# - name: Configure MariaDB Debian
+#   lineinfile:
+#     path: /etc/mysql/mariadb.conf.d/50-server.cnf
+#     insertafter: "^[mysqld]"
+#     line: |
+#       innodb_file_per_table=1
+#       lower_case_table_names=0
+
+# - name: Copy my.cnf to server
+#   template:
+#     src: templates/my_cnf.j2
+#     dest: /root/.my.cnf
+#     owner: root
+#     group: root
+#     mode: 0644
+#   notify: restart mariadb
+
+# - name: Create Logins for MariaDB On Poller
+#   become: True
+#   community.mysql.mysql_user:
+#     check_implicit_admin: True
+#     login_user: root
+#     name: librenms
+#     host: "{{ poller_ip }}"
+#     password: "{{ mysql_password }}"
+#     priv: "librenms.*:ALL"
+#     update_password: on_create
+#     state: present
+#     #no_log: True
+
+# - name: Start and enable MariaDB Service
+#   service:
+#     name: mariadb
+#     state: restarted
+#     enabled: True
+
+- name: Configure Firewalld for librenms HTTP and HTTPS
+  ansible.posix.firewalld:
+    zone: public
+    service: "{{ item }}"
+    state: enabled
+    permanent: True
+  with_items:
+    - http
+    - https
+
+- name: Copy www.conf to librenms.conf
+  copy:
+    remote_src: True
+    src: /etc/php/{{ php_version }}/fpm/pool.d/www.conf
+    dest: /etc/php/{{ php_version }}/fpm/pool.d/librenms.conf
+
+- name: Change PHP-FPM www to librenms
+  lineinfile:
+    path: /etc/php/{{ php_version }}/fpm/pool.d/librenms.conf
+    regex: '\[www\]'
+    line: "[librenms]"
+
+- name: Update PHP-FPM user to librenms
+  lineinfile:
+    path: /etc/php/{{ php_version }}/fpm/pool.d/librenms.conf
+    regex: '^user\ ='
+    line: "user = librenms"
+
+- name: Update PHP-FPM group to librenms
+  lineinfile:
+    path: /etc/php/{{ php_version }}/fpm/pool.d/librenms.conf
+    regex: '^group\ ='
+    line: "group = librenms"
+
+- name: Update listen to a unique name
+  lineinfile:
+    path: /etc/php/{{ php_version }}/fpm/pool.d/librenms.conf
+    regex: '^listen\ ='
+    line: "listen = /run/php-fpm-librenms.sock"

@@ -24,6 +24,7 @@ yum_prerequisites:
   - php-xml
   - php-zip
   - php-mysqlnd
+  - policycoreutils-python-utils
   - python3
   - python3-PyMySQL
   - python3-pip
