@@ -5,8 +5,15 @@
     description: EPEL YUM Repo
     baseurl: https://download.fedoraproject.org/pub/epel/$releasever/Everything/$basearch/
 
+- name: Enable PHP {{ php_version }} Module
+  shell:
+    cmd: "{{ item }}"
+  with_items:
+    - dnf module reset php
+    - dnf module enable php:{{ php_version }}
+
 - name: Install Prerequisite Packages on RedHat-based OS
-  yum:
+  dnf:
     name: "{{ yum_prerequisites }}"
     state: present
 
