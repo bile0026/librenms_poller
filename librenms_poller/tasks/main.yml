@@ -95,8 +95,16 @@
   community.general.timezone:
     name: "{{ time_zone }}"
 
-- name: Prepare MariaDB on Core server
-  script: scripts/mysql_setup.sh {{ mysql_password }} {{ poller_ip }}
+# - name: Prepare MariaDB on Core server
+#   script: scripts/mysql_setup.sh {{ mysql_password }} {{ poller_ip }}
+#   delegate_to: "{{ core_server_fqdn }}"
+- name: Create Logins for MariaDB On Core Server
+  community.mysql.mysql_user:
+    name: librenms
+    host: "{{ poller_ip }}"
+    password: "{{ mysql_password }}"
+    priv: "librenms.*:ALL"
+    state: present
   delegate_to: "{{ core_server_fqdn }}"
 
 - name: Enable lnms command completion - link
