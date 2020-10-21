@@ -162,3 +162,12 @@
     owner: librenms
     group: librenms
     backup: True
+
+- name: Validate installation
+  become: True
+  shell: /opt/librenms/validate.php
+  register: validate_results
+
+- name: Print results
+  debug:
+    var: validate_results
