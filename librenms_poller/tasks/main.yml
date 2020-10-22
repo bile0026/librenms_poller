@@ -156,6 +156,19 @@
 #     login_user: "{{ core_db_user }}"
 #     login_password: "{{ core_db_password }}"
 
+- name: Configure rsyslog
+  lineinfile:
+    path: /etc/rsyslog.conf
+    insertafter: "# provides UDP syslog reception"
+    line: |
+      module(load="imudp")
+      imput(type="imudp" port="{{ syslog_port }}")
+
+- name: Restart rsyslog service
+  service:
+    name: rsyslog
+    state: restarted
+
 - name: Enable lnms command completion - link
   file:
     src: /opt/librenms/lnms
