@@ -222,6 +222,12 @@
       DB_USERNAME={{ mysql_user }}
       DB_PASSWORD={{ mysql_password }}
 
+- name: Enable SNMP Scans at 11pm Nightly
+  lineinfile:
+    path: /etc/cron.d/librenms
+    inssertbefore: EOF
+    line: "0 23 * * * /opt/librenms/snmp-scan.py > /opt/librenms/logs/snmp-scan.log"
+
 - name: Update APP_KEY in /opt/librenms/.env
   lineinfile:
     path: /opt/librenms/.env

@@ -17,3 +17,9 @@ syslog_port: 514
 #core_db_password: librenms
 #mariadb_root_pass: librenms
 app_key: 123456
+auto_scan_subnets: # subnets included in automatic discovery
+  - 192.168.0.0/24
+  - 192.168.1.0/24
+exclude_scan_subnets: # subnets excluded from automatic discovery
+  - 192.168.0.1/32
+  - 192.168.1.1/32

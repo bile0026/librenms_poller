@@ -55,4 +55,10 @@ poller_group_number: 2 (poller group member, make sure groups is created in core
 core_server_fqdn: 192.168.252.58 (ip or fqdn of your core server)
 snmp_string: public (default snmp string for the poller)
 app_key: 123456 (APP_KEY from /opt/librename/.env from your core server)
+auto_scan_subnets: (subnets included in automatic discovery)
+  - 192.168.0.0/24
+  - 192.168.1.0/24
+exclude_scan_subnets: (subnets excluded from automatic discovery)
+  - 192.168.0.1/32
+  - 192.168.1.1/32
 ```

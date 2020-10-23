@@ -34,6 +34,16 @@ $config['auth_mechanism'] = "mysql"; # default, other options: ldap, http-auth
 #$config['nets'][] = "172.16.0.0/12";
 #$config['nets'][] = "192.168.0.0/16";
 
+### Auto snmp scanning discovery
+{% for net in auto_scan_subnets %}}
+$config['nets'][] = "{{ net }}";
+{% endfor %}}
+{% for net in exclude_scan_subnets %}}
+$config['autodiscover']['nets-exclude'][] = "{{ net }}";
+{% endfor %}}
+$config['autodiscovery']['xdp'] = true;
+
+
 # Number in days of how long to keep old rrd files. 0 disables this feature
 $config['rrd_purge'] = 7;
 
