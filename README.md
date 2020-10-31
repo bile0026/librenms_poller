@@ -11,6 +11,8 @@
 - using shell for dnf PHP commands on RedHat, once dnf_module is released need to update to this
 - Possibly convert librenms php composer script to use ansible modules
 
+# Pre-setup tasks
+
 ```
 GRANT ALL PRIVILEGES ON librenms.* TO 'librenms'@'IP_OF_NEW_POLLER' IDENTIFIED BY 'The_Password_You_Chose' WITH GRANT OPTION;
 ```
@@ -32,6 +34,8 @@ Also, make sure you have pre-created your poller group on the core server in Set
 Assumes memcached, redis, and rrdcached are all installed on your core server.
 
 Needs to run with become in order to do all the things.
+
+# Run Playbook
 
 run playbook with command:
 
