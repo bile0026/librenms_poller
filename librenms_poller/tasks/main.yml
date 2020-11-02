@@ -156,13 +156,18 @@
 #     login_user: "{{ core_db_user }}"
 #     login_password: "{{ core_db_password }}"
 
-- name: Configure rsyslog
+- name: Configure rsyslog to accept syslogs
   lineinfile:
     path: /etc/rsyslog.conf
     insertafter: "# provides UDP syslog reception"
     line: |
       module(load="imudp")
       imput(type="imudp" port="{{ syslog_port }}")
+
+- name: Configure rsyslog to forward syslogs to core server
+  template:
+    src: templates/30-librenms.j2
+    dest: /etc/rsyslog.d/30-librenms.conf
 
 - name: Restart rsyslog service
   service:
