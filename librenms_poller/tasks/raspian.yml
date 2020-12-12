@@ -1,7 +1,7 @@
 ---
 - name: Enable universe repository x86
   apt_repository:
-    repo: deb http://archive.ubuntu.com/ubuntu focal universe
+    repo: deb http://ports.ubuntu.com/ubuntu-ports {{ ansible_facts.distribution_release}} universe
     state: present
     update_cache: True
   when: not ansible_architecture is search("arm")

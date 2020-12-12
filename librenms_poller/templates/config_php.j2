@@ -22,8 +22,23 @@ $config['base_url']        = "/";
 ### and that your web server has permission to talk to rrdcached.
 #$config['rrdcached']    = "unix:/var/run/rrdcached.sock";
 
-### Default community
+# SNMP Settings
+$config['snmp']['timeout'] = 1;                         # timeout in seconds
+$config['snmp']['retries'] = 5;                         # how many times to retry the query
+$config['snmp']['transports'] = array('udp', 'udp6', 'tcp', 'tcp6');    # Transports to use
+$config['snmp']['version'] = ['v2c', 'v3'];               # Default versions to use
+$config['snmp']['port'] = {{ snmp_port }};                      # Default port
+$config['snmp']['exec_timeout'] = 1200;                 # execution time limit in seconds
+
+### Default snmp community settings
 $config['snmp']['community'] = array('{{ snmp_string }}');
+
+$config['snmp']['v3'][0]['authlevel'] = "{{ snmp_v3_auth.authlevel }}";     # noAuthNoPriv | authNoPriv | authPriv
+$config['snmp']['v3'][0]['authname'] = "{{ snmp_v3_auth.authname }}";       # User Name (required even for noAuthNoPriv)
+$config['snmp']['v3'][0]['authpass'] = "{{ snmp_v3_auth.authpass }}";       # Auth Passphrase
+$config['snmp']['v3'][0]['authalgo'] = "{{ snmp_v3_auth.authalgo }}";       # MD5 | SHA
+$config['snmp']['v3'][0]['cryptopass'] = "{{ snmp_v3_auth.cryptopass }}";   # Privacy (Encryption) Passphrase
+$config['snmp']['v3'][0]['cryptoalgo'] = "{{ snmp_v3_auth.cryptoalgo }}";   # AES | DES
 
 ### Authentication Model
 $config['auth_mechanism'] = "mysql"; # default, other options: ldap, http-auth
@@ -35,12 +50,12 @@ $config['auth_mechanism'] = "mysql"; # default, other options: ldap, http-auth
 #$config['nets'][] = "192.168.0.0/16";
 
 ### Auto snmp scanning discovery
-{% for net in auto_scan_subnets %}}
+{% for net in auto_scan_subnets %}
 $config['nets'][] = "{{ net }}";
-{% endfor %}}
-{% for net in exclude_scan_subnets %}}
+{% endfor %}
+{% for net in exclude_scan_subnets %}
 $config['autodiscover']['nets-exclude'][] = "{{ net }}";
-{% endfor %}}
+{% endfor %}
 $config['autodiscovery']['xdp'] = true;
 
 
@@ -69,5 +84,5 @@ $config['enable_billing'] = 0;
 # Enable the in-built services support (Nagios plugins)
 $config['show_services'] = 1;
 #$config["rrdcached"] = "unix:/var/run/rrdcached/rrdcached.sock";
-$config["update_channel"] = "release";
+$config["update_channel"] = "{{ update_channel }}";
 $config["enable_syslog"] = 1;
