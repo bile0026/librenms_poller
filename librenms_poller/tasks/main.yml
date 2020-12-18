@@ -100,8 +100,8 @@
 
 - name: Add Librenms user account
   user:
-    name: librenms
-    comment: librenms user account
+    name: "{{ service_account }}"
+    comment: librenms service account
     create_home: True
     home: /opt/librenms
     shell: /bin/bash
@@ -110,15 +110,15 @@
 - name: Chown librenms /opt/librenms
   file:
     path: /opt/librenms
-    owner: librenms
-    group: librenms
+    owner: "{{ service_account }}"
+    group: "{{ service_account }}"
     mode: "771"
     recurse: True
 
 - name: Grant librenms ACL permissions to rrd/logs/bootstrap
   ansible.posix.acl:
     path: "{{ item }}"
-    entity: librenms
+    entity: "{{ service_account }}"
     etype: group
     permissions: rwx
     default: True
@@ -133,7 +133,7 @@
 - name: Install PHP composer as librenms user
   #remote_user: librenms
   become: True
-  become_user: librenms
+  become_user: "{{ service_account }}"
   # become_method: su
   vars:
     ansible_command_timeout: 3600
@@ -231,7 +231,7 @@
   lineinfile:
     path: /etc/cron.d/librenms
     insertbefore: EOF
-    line: "0 23 * * * /opt/librenms/snmp-scan.py > /opt/librenms/logs/snmp-scan.log"
+    line: "0 23 * * * {{ service_account }} /opt/librenms/snmp-scan.py >> /opt/librenms/logs/snmp-scan.log"
 
 - name: Update APP_KEY in /opt/librenms/.env
   lineinfile:
@@ -243,8 +243,8 @@
   template:
     src: templates/config_php.j2
     dest: /opt/librenms/config.php
-    owner: librenms
-    group: librenms
+    owner: "{{ service_account }}"
+    group: "{{ service_account }}"
     backup: True
 
 - name: Reboot poller device
