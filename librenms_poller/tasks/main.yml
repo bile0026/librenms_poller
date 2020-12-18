@@ -253,7 +253,6 @@
     msg: "Reboot via ansible, please save all work."
 
 - name: Validate installation
-  become: True
   shell: /opt/librenms/validate.php
   register: validate_results
   become: false
