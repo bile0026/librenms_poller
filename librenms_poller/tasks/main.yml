@@ -156,6 +156,7 @@
 #     login_user: "{{ core_db_user }}"
 #     login_password: "{{ core_db_password }}"
 
+# FIXME #1
 - name: Configure rsyslog to accept syslogs
   lineinfile:
     path: /etc/rsyslog.conf
