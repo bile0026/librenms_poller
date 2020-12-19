@@ -29,7 +29,7 @@ module(load="omprog")
 
 template(name="librenms"
         type="string"
-        string= "%fromhost-ip%||%syslogfacility%||%syslogpriority%||%syslogseverity%||%syslogtag%||%$year%-%$month%-%$day% %timegenerated:8:25%||%msg%||%programname%\n")
+        string= "%HOSTNAME%||%syslogfacility%||%syslogpriority%||%syslogseverity%||%syslogtag%||%$year%-%$month%-%$day% %timegenerated:8:25%||%msg%||%programname%\n")
 action(type="omprog"
         binary="/opt/librenms/syslog.php"
         template="librenms")
