@@ -156,14 +156,13 @@
 #     login_user: "{{ core_db_user }}"
 #     login_password: "{{ core_db_password }}"
 
-# FIXME #1
 - name: Configure rsyslog to accept syslogs
   lineinfile:
     path: /etc/rsyslog.conf
-    insertafter: "# provides UDP syslog reception"
+    insertafter: '^\#input\(type=\"imudp\" port=\"514\"\)$'
     line: |
       module(load="imudp")
-      imput(type="imudp" port="{{ syslog_port }}")
+      input(type="imudp" port="{{ syslog_port }}")
 
 - name: Configure rsyslog to forward syslogs to core server
   template:

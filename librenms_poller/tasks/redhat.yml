@@ -120,16 +120,3 @@
     path: /etc/php-fpm.d/librenms.conf
     regex: '^listen\ ='
     line: "listen = /run/php-fpm-librenms.sock"
-
-- name: Configure rsyslog
-  lineinfile:
-    path: /etc/rsyslog.conf
-    insertafter: "# provides UDP syslog reception"
-    line: |
-      module(load="imudp")
-      imput(type="imudp" port="{{ syslog_port }}")
-
-- name: Restart rsyslog service
-  service:
-    name: rsyslog
-    state: restarted
