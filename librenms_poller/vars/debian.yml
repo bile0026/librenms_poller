@@ -33,3 +33,4 @@ apt_prerequisites:
   - python3-dotenv
   - python3-redis
   - python3-setuptools
+  - python3-pip
