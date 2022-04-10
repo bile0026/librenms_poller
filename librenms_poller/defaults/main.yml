@@ -16,7 +16,7 @@ core_server_fqdn: 172.16.0.1
 snmp_string: public
 snmp_port: 161
 snmp_v3_auth:
-  authlevel: AuthPriv
+  authlevel: authPriv
   authname: snmp_user
   authpass: pass
   authalgo: MD5
