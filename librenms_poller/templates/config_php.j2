@@ -64,6 +64,7 @@ $config['rrd_purge'] = 7;
 
 $config['distributed_poller_name']           = "{{ poller_name }}"; # Set your own poller name
 $config['distributed_poller_group']          = '{{ poller_group_number }}'; # Set the id, according to the group you created in central
+$config['default_poller_group']              = '{{ poller_group_number }}'; # Set the id, where you want devices autodiscovered by this poller to be added
 $config['distributed_poller_memcached_host'] = "{{ core_server_fqdn }}";
 $config['distributed_poller_memcached_port'] = 11211;
 $config['distributed_poller']                = true;
