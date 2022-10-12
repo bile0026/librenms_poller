@@ -11,18 +11,23 @@ yum_prerequisites:
   - net-snmp
   - net-snmp-utils
   - nmap
-  - php-fpm
-  - php-cli
   - php-common
-  - php-curl
+  - php-devel
+  - php-fedora-autoloader
+  - php-fpm
   - php-gd
   - php-json
   - php-mbstring
+  - php-mysqlnd
+  - php-pdo
+  - php-pear
+  - php-pecl-igbinary
+  - php-pecl-memcached
+  - php-pecl-msgpack
+  - php-pecl-zip
   - php-process
   - php-snmp
-  - php-xml
-  - php-zip
-  - php-mysqlnd
+  - php-x
   - policycoreutils-python-utils
   - python3
   - python3-PyMySQL
