@@ -118,4 +118,4 @@
   lineinfile:
     path: /etc/php/{{ php_version }}/fpm/pool.d/librenms.conf
     regex: '^listen\ ='
-    line: "listen = /run/php-fpm-librenms.sock"
+    line: "listen = /run/php{{ php_version }}-fpm-librenms.sock"

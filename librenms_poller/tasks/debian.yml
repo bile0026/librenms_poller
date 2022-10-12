@@ -8,6 +8,17 @@
     - not ansible_architecture is search("arm")
     - not ansible_architecture == 'aarch64'
 
+- name: Enable PHP 8.1 Repository
+  apt_repository:
+    repo: ppa:ondrej/php
+    state: present
+    update_cache: True
+
+- name: Install PHP 8.1
+  apt:
+    package: php8.1
+    state: present
+
 # Not necessary?
 # - name: Enable universe repository rasberry pi ARM
 #   apt_repository:
@@ -94,4 +105,4 @@
   lineinfile:
     path: /etc/php/{{ php_version }}/fpm/pool.d/librenms.conf
     regex: '^listen\ ='
-    line: "listen = /run/php-fpm-librenms.sock"
+    line: "listen = /run/php{{php_version}}-fpm-librenms.sock"

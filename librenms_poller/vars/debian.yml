@@ -12,17 +12,19 @@ apt_prerequisites:
   #- mariadb-server
   - mtr-tiny
   - nmap
-  - php-cli
-  - php-curl
-  - php-fpm
-  - php-gd
-  - php-json
-  - php-memcached
-  - php-mbstring
-  - php-mysql
-  - php-snmp
-  - php-xml
-  - php-zip
+  - php{{ php_version }}-cli
+  - php{{ php_version }}-common
+  - php{{ php_version }}-curl
+  - php{{ php_version }}-fpm
+  - php{{ php_version }}-gd
+  - php{{ php_version }}-mbstring
+  - php{{ php_version }}-mysql
+  - php{{ php_version }}-opcache
+  - php{{ php_version }}-readline
+  - php{{ php_version }}-snmp
+  - php{{ php_version }}-xml
+  - php{{ php_version }}-zip
+  - php{{ php_version }}-memcached
   #- rrdcached={{ rrdcached_version }}
   - rrdtool
   - snmp
