@@ -3,7 +3,7 @@
 update_channel: release
 webserver: nginx
 time_zone: America/Chicago
-php_version: 7.4 # for debian installs
+php_version: 8.1 # for debian installs
 rrdcached_version: 1.7.0 # needs to match core server
 service_account: librenms
 mysql_user: librenms
