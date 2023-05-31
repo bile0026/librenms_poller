@@ -98,7 +98,7 @@
     clone: True
   when: not stat_result.stat.exists
 
-- name: Add Librenms user account
+- name: Add Librenms service account
   user:
     name: "{{ service_account }}"
     comment: librenms service account
@@ -222,6 +222,10 @@
     remote_src: True
     src: /opt/librenms/dist/librenms-scheduler.timer
     dest: /etc/systemd/system/
+
+- name: Force systemd to re-execute itself
+  ansible.builtin.systemd:
+    daemon_reexec: true
 
 - name: Enable Scheduler Timer
   service:
