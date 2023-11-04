@@ -13,6 +13,7 @@ poller_ip: 172.16.0.5
 poller_name: <poller_name>
 poller_group_number: 4
 core_server_fqdn: 172.16.0.1
+configure_local_snmp: false
 snmp_string: public
 snmp_port: 161
 snmp_v3_auth:
