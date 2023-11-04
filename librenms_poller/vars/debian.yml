@@ -27,6 +27,7 @@ apt_prerequisites:
   - php{{ php_version }}-memcached
   #- rrdcached={{ rrdcached_version }}
   - rrdtool
+  - rsyslog
   - snmp
   - snmpd
   - whois
