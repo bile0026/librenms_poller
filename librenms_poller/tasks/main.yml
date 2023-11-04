@@ -188,6 +188,7 @@
 
 - name: Configure SNMPD
   import_tasks: snmpd.yml
+  when: configure_local_snmp
 
 - name: Download SNMP Distro
   get_url:
