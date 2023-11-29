@@ -6,7 +6,7 @@ $config['site_style'] = "mono";
 ### Database config
 $config['db_host'] = "{{ core_server_fqdn }}";
 $config['db_user'] = "librenms";
-$config['db_pass'] = "librenms";
+$config['db_pass'] = "{{ mysql_password }}";
 $config['db_name'] = "librenms";
 
 // This is the user LibreNMS will run as
