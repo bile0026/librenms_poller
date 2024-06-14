@@ -30,6 +30,7 @@ apt_prerequisites:
   - rsyslog
   - snmp
   - snmpd
+  - snmp-mibs-downloader
   - whois
   - unzip
   - python3-pymysql

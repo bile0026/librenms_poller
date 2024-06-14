@@ -51,6 +51,10 @@
     state: present
     update_cache: True
 
+- name: Install SNMP MIB Libraries
+  command: download-mibs
+  become: true
+
 - name: Set Timezone PHP Debian
   lineinfile:
     path: "{{ item }}"
