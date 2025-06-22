@@ -17,6 +17,7 @@ apt_prerequisites:
   - php{{ php_version }}-curl
   - php{{ php_version }}-fpm
   - php{{ php_version }}-gd
+  - php{{ php_version }}-gmp
   - php{{ php_version }}-mbstring
   - php{{ php_version }}-mysql
   - php{{ php_version }}-opcache
