@@ -10,6 +10,7 @@ yum_prerequisites:
   - mtr
   - net-snmp
   - net-snmp-utils
+  - net-snmp-libs
   - nmap
   - php-cli
   - php-common

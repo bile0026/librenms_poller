@@ -31,6 +31,7 @@ apt_prerequisites:
   - rrdtool
   - snmp
   - snmpd
+  - snmp-mibs-downloader
   - whois
   - unzip
   - python3-pymysql
