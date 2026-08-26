@@ -35,7 +35,7 @@
 
 - name: Install PHP 8.1
   apt:
-    package: php8.1
+    package: php8.4
     state: present
 
 # Not necessary?
@@ -128,4 +128,4 @@
   lineinfile:
     path: /etc/php/{{ php_version }}/fpm/pool.d/librenms.conf
     regex: '^listen\ ='
-    line: "listen = /run/php{{php_version}}-fpm-librenms.sock"
+    line: "listen = /run/php{{ php_version }}-fpm-librenms.sock"
