@@ -1,2 +1,3 @@
 host_vars
 ansible.cfg
+.DS_Store
