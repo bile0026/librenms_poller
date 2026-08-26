@@ -9,7 +9,7 @@
     - not ansible_architecture is search("arm")
     - not ansible_architecture == 'aarch64'
 
-- name: Enable PHP 8.1 Repository for Ubuntu
+- name: Enable PHP Repository for Ubuntu
   apt_repository:
     repo: ppa:ondrej/php
     state: present
@@ -17,7 +17,7 @@
   when:
     - ansible_distribution == 'Ubuntu'
 
-- name: Debian PHP 8.1 repo GPG key
+- name: Debian PHP repo GPG key
   ansible.builtin.get_url:
     url: https://packages.sury.org/php/apt.gpg
     dest: /etc/apt/trusted.gpg.d/debian-php-8.gpg
@@ -25,7 +25,7 @@
   when:
     - ansible_distribution == 'Debian'
 
-- name: Enable PHP 8.1 Repository for Debian
+- name: Enable PHP Repository for Debian
   apt_repository:
     repo: deb https://packages.sury.org/php/ {{ ansible_lsb.codename }} main
     state: present
@@ -33,7 +33,7 @@
   when:
     - ansible_distribution == 'Debian'
 
-- name: Install PHP 8.1
+- name: Install PHP 8.4
   apt:
     package: php8.4
     state: present
